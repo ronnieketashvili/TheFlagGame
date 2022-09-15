@@ -4,7 +4,6 @@ import screen
 import pygame
 import soldier
 
-
 pygame.init()
 
 def main(): #פה ירוץ המשחק
