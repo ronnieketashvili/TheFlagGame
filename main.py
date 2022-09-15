@@ -6,8 +6,6 @@ import soldier
 
 
 
-
-
 def maim(): #פה ירוץ המשחק
     clock = pygame.time.Clock()
     MINEFIELD = MineField.creating_minefield()
