@@ -27,10 +27,14 @@ def lay_mines(mine_field):
 
 def mines_location(mine_field):
     mines_location = []
+    mini_list = []
     for row in range(len(mine_field)):
         for col in range(len(mine_field[row])):
-            if mine_field[row][col] == 'mine':
-                mines_location.append((row,col))
+            while len(mini_list) <= 3:
+                if mine_field[row][col] == 'mine':
+                    mini_list.append(mine_field[row][col])
+            mines_location.append(mini_list)
+            mini_list = []
     return mines_location
 
 def flag_position(mine_field):
