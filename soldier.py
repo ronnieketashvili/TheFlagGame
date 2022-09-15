@@ -34,7 +34,7 @@ def soldier_moving():
 
 BORDER = pygame.Rect(1000, 500, consts.WINDOW_WIDTH,consts.WINDOW_HEIGHT)
 
-def soldier_in_matrix(minefield):
+def soldierlegs_in_matrix(minefield):
     soldier_col = int(soldier.x) // 20
     soldier_row = int(soldier.y) // 20
     legs_location_matrix = minefield[int(soldier_row) + 3][int(soldier_col) + 1]
@@ -46,7 +46,7 @@ def soldier_in_matrix(minefield):
 soldier = pygame.Rect(0,0,consts.SOLDIER_WIDTH,consts.SOLDIER_HEIGHT)
 
 def checking_minefield():
-    if soldier_in_matrix(consts.MINEFIELD) == 'mine':
+    if soldierlegs_in_matrix(consts.MINEFIELD) == 'mine':
         count = 0
         h = 0
         for i in range(50):
@@ -65,7 +65,7 @@ def checking_minefield():
         #screen.draw_lose_message()
         #consts.FINISH = True
         #return consts.FINISH
-    elif soldier_in_matrix(consts.MINEFIELD) == 'flag':
+    elif soldierlegs_in_matrix(consts.MINEFIELD) == 'flag':
         #screen.draw_win_message()
         consts.FINISH = True
         return consts.FINISH

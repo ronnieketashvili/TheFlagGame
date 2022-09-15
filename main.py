@@ -9,9 +9,9 @@ pygame.init()
 CURRENT_TIME = 0
 BUTTON_PRESS_TIME = 0
 def main(): #פה ירוץ המשחק
-    clock = pygame.time.Clock()
+    CLOCK = pygame.time.Clock()
     while not consts.FINISH:
-        #clock.tick(consts.FPS)
+        CLOCK.tick(consts.FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 consts.FINISH= True

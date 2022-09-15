@@ -50,4 +50,3 @@ def print_mine_field(mine_filed):
         for col in range(len(mine_filed[row])):
             print(mine_filed[row][col]," ", end="")
         print()
-
