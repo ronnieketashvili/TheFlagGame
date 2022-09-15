@@ -61,6 +61,7 @@ def add_mine_grid():
         MINE = pygame.transform.scale(mine_picture, (consts.MINE_SIZE))
         SCREEN.blit(MINE, (LIST[i][1] * 20, LIST[i][0]* 20)) #y = row, col = x
 
+print()
 #def add_soldier():
 
 
