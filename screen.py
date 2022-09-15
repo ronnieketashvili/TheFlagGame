@@ -5,7 +5,7 @@ import os
 import soldier
 import MineField
 
-pygame.init()
+
 SCREEN = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 pygame.display.set_caption("FLAG GAME!")
 
