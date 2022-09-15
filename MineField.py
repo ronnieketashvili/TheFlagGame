@@ -1,6 +1,6 @@
 import random
 
-def  building_minefield():
+def building_minefield(): #עובד
     mine_field = []
     for i in range(25):
         row  =  []
@@ -11,11 +11,10 @@ def  building_minefield():
 
 
 def lay_mines(mine_field):
-    mines_location = []
     for i in range(20):
         random_row = random.randint(0,24)
         random_col = random.randint(0,47)
-        while 21 <= random_row <=23 and 44 <= random_col <= 49:
+        while 21 <= random_row <= 23 and 44 <= random_col <= 49:
             random_row = random.randint(0, 24)
             random_col = random.randint(0, 47)
         while 0 <= random_row <= 4 and  0 <= random_col <= 2:
@@ -27,14 +26,10 @@ def lay_mines(mine_field):
 
 def mines_location(mine_field):
     mines_location = []
-    mini_list = []
     for row in range(len(mine_field)):
         for col in range(len(mine_field[row])):
-            while len(mini_list) <= 3:
-                if mine_field[row][col] == 'mine':
-                    mini_list.append(mine_field[row][col])
-            mines_location.append(mini_list)
-            mini_list = []
+            if mine_field[row][col] == 'mine':
+                mines_location.append((row, col))
     return mines_location
 
 def flag_position(mine_field):
@@ -42,7 +37,6 @@ def flag_position(mine_field):
         for col in range(4):
             mine_field[21 + row][46 + col] = 'flag'
     return mine_field
-
 
 def creating_minefield():
     mine_field = building_minefield()

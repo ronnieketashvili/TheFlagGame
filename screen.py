@@ -3,6 +3,8 @@ import consts
 import random
 import os
 import soldier
+import MineField
+
 pygame.init()
 SCREEN = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 pygame.display.set_caption("FLAG GAME!")
@@ -36,15 +38,34 @@ def opening_screen():
 
 
 
-#def when_enter_pressed():
+def check_if_enter():
+    key_pressed = pygame.key.get_pressed()
+    if key_pressed[pygame.K_KP_ENTER]:
+        return True
+def when_enter_pressed():
+    SCREEN. fill(consts.SCREEN_ENTER_COLOR)
+    grid_create()
+    pygame.display.update()
 
-'''     
-img = pygame.image.load('bushes.png')
-PURPLE = (103,17,136)
-img.set_colorkey(PURPLE)
-screen.blit(img, (-100,-200))
-pygame.display.flip()
-'''
+def grid_create():
+    x_rate = 0
+    y_rate = 0
+    for i in range(consts. COLUMN) :
+        x_rate += consts.DISTANCE_BTW_ROWS
+        y_rate += consts.DISTANCE_BTW_ROWS
+        pygame.draw.line(SCREEN, (0, 139, 0), (x_rate, 0), (x_rate, consts.WINDOW_HEIGHT))
+        pygame.draw.line(SCREEN, (0, 139, 0), (0, y_rate), (consts.WINDOW_WIDTH, y_rate))
+
+field = MineField.building_minefield()
+field2 = MineField.lay_mines(field)
+list = []
+list = MineField.mines_location(field2)
+print(list)
+#def add_mains_grid():
+
+
+
+
 
 
 def draw_lose_message():

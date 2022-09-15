@@ -9,12 +9,18 @@ FPS = 60
 
 
 SCREEN_COLOR = (61, 145, 64)
+SCREEN_ENTER_COLOR = (0,0,0)
 
 BUSHES_SIZE = (220, 60)
 BUSHES_NUMBER = 20
 
+ROWS = 25
+COLUMN = 50
+DISTANCE_BTW_ROWS = WINDOW_HEIGHT // ROWS
+
 FINISH = False
 MINEFIELD = MineField.creating_minefield()
+
 
 FONT_NAME = "Calibri"
 LOSE_MESSAGE = "You Lost!"
