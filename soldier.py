@@ -60,6 +60,7 @@ def checking_minefield():
             injured_soldier = pygame.transform.scale(injured_soldier_picture, ((70, 100)))
             screen.SCREEN.blit(injured_soldier, (soldier.x, soldier.y))
             pygame.display.update()
+
             h += 1
         #screen.draw_lose_message()
         #consts.FINISH = True
