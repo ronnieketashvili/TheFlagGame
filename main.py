@@ -16,7 +16,7 @@ def main(): #פה ירוץ המשחק
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 finish = True
-        soldier.soldier_in_matrix()
+        soldier. checking_minefield()
         screen.opening_screen()
     pygame.quit()
 if __name__ == '__main__':
