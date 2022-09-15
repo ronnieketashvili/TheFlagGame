@@ -6,6 +6,8 @@ import soldier
 
 pygame.init()
 
+CURRENT_TIME = 0
+BUTTON_PRESS_TIME = 0
 def main(): #פה ירוץ המשחק
     clock = pygame.time.Clock()
     while not consts.FINISH:
@@ -26,6 +28,11 @@ def main(): #פה ירוץ המשחק
                 if event.key == pygame.K_DOWN:
                     soldier.down_key()
                     soldier.checking_minefield()
+                if event.key == pygame.K_KP_ENTER:
+                    count = 0
+                    while count != 35:
+                        screen.when_enter_pressed()
+                        count += 1
         screen.opening_screen()
     pygame.quit()
 

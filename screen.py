@@ -34,10 +34,6 @@ def opening_screen():
     pygame.display.update()
 
 
-def check_if_enter():
-    key_pressed = pygame.key.get_pressed()
-    if key_pressed[pygame.K_KP_ENTER]:
-        return True
 def when_enter_pressed():
     SCREEN. fill(consts.SCREEN_ENTER_COLOR)
     grid_create()
@@ -61,7 +57,6 @@ def add_mine_grid():
         MINE = pygame.transform.scale(mine_picture, (consts.MINE_SIZE))
         SCREEN.blit(MINE, (LIST[i][1] * 20, LIST[i][0]* 20)) #y = row, col = x
 
-print()
 #def add_soldier():
 
 
