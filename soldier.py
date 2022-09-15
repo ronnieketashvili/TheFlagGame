@@ -49,15 +49,15 @@ def checking_minefield():
     if soldier_in_matrix(consts.MINEFIELD) == 'mine':
         count = 0
         h = 0
-        for i in range(40):
+        for i in range(50):
             explotion_picture = pygame.image.load('explotion.png')
-            explotion = pygame.transform.scale(explotion_picture, (80, 80))
-            screen.SCREEN.blit(explotion, (soldier.x, soldier.y))
+            explotion = pygame.transform.scale(explotion_picture, (180, 180))
+            screen.SCREEN.blit(explotion, (soldier.x - 70 , soldier.y - 70))
             pygame.display.update()
             count += 1
         for j in range(40):
             injured_soldier_picture = pygame.image.load('injury_soldier.png')
-            injured_soldier = pygame.transform.scale(injured_soldier_picture, ((consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT)))
+            injured_soldier = pygame.transform.scale(injured_soldier_picture, ((70, 100)))
             screen.SCREEN.blit(injured_soldier, (soldier.x, soldier.y))
             pygame.display.update()
             h += 1
