@@ -56,6 +56,7 @@ def grid_create():
 
 
 LIST = MineField.mines_location(consts.MINEFIELD)
+print(LIST)
 def add_mine_grid():
     for i in range(0,len(LIST), 3):
         mine_picture = pygame.image.load('mine.png')

@@ -35,10 +35,11 @@ def soldier_moving():
 BORDER = pygame.Rect(1000,500,consts.WINDOW_WIDTH,consts.WINDOW_HEIGHT)
 
 def soldier_in_matrix(minefield):
-    soldier_col = int(soldier.x) / 20
-    soldier_row = int(soldier.y) / 20
+    soldier_col = int(soldier.x) // 20
+    soldier_row = int(soldier.y) // 20
     legs_location_matrix = minefield[int(soldier_row) - 3][int(soldier_col) + 1]
     print(legs_location_matrix)
+    print(soldier_row, soldier_col)
     return legs_location_matrix
 
 
