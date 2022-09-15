@@ -26,10 +26,14 @@ def create_bushes():
         bush = pygame.transform.scale(bush_picture, (consts.BUSHES_SIZE))
         SCREEN.blit(bush, (locations[i][0], locations[i][1]))
 
-
+def add_flag():
+    flag_picture = pygame.image.load('flag.png')
+    flag = pygame.transform.scale(flag_picture, (consts.FLAG_SIZE))
+    SCREEN.blit(flag, (920, 420))
 def opening_screen():
     SCREEN.fill(consts.SCREEN_COLOR)
     create_bushes()
+    add_flag()
     SCREEN.blit(soldier.soldier_image, (soldier.soldier.x,soldier.soldier.y))
     pygame.display.update()
 
@@ -38,12 +42,13 @@ def when_enter_pressed():
     SCREEN. fill(consts.SCREEN_ENTER_COLOR)
     grid_create()
     add_mine_grid()
+    add_soldier()
     pygame.display.update()
 
 def grid_create():
     x_rate = 0
     y_rate = 0
-    for i in range(consts. COLUMN) :
+    for i in range(consts. COLUMN):
         x_rate += consts.DISTANCE_BTW_ROWS
         y_rate += consts.DISTANCE_BTW_ROWS
         pygame.draw.line(SCREEN, (0, 139, 0), (x_rate, 0), (x_rate, consts.WINDOW_HEIGHT))
@@ -55,10 +60,12 @@ def add_mine_grid():
     for i in range(0,len(LIST), 3):
         mine_picture = pygame.image.load('mine.png')
         MINE = pygame.transform.scale(mine_picture, (consts.MINE_SIZE))
-        SCREEN.blit(MINE, (LIST[i][1] * 20, LIST[i][0]* 20)) #y = row, col = x
+        SCREEN.blit(MINE, (LIST[i][1] * 20, LIST[i][0] * 20)) #y = row, col = x
 
-#def add_soldier():
-
+def add_soldier():
+    soldier_night_picture = pygame.image.load('soldier_nigth.png')
+    soldier_night = pygame.transform.scale(soldier_night_picture, (consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT))
+    SCREEN.blit(soldier_night, (soldier.soldier.x, soldier.soldier.y)) #y = row, col = x
 
 
 
