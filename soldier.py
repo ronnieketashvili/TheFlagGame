@@ -40,6 +40,5 @@ def checking_minefield():
     else:
         soldier_moving()
 
-checking_minefield()
-print(soldier.x, soldier.y)
+
 

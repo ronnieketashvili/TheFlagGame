@@ -32,10 +32,6 @@ def opening_screen():
     create_bushes()
     SCREEN.blit(soldier.soldier_image, (soldier.soldier.x,soldier.soldier.y))
     pygame.display.update()
-    return opening_screen
-
-
-
 
 
 def check_if_enter():
@@ -45,6 +41,7 @@ def check_if_enter():
 def when_enter_pressed():
     SCREEN. fill(consts.SCREEN_ENTER_COLOR)
     grid_create()
+    add_mine_grid()
     pygame.display.update()
 
 def grid_create():
@@ -56,12 +53,16 @@ def grid_create():
         pygame.draw.line(SCREEN, (0, 139, 0), (x_rate, 0), (x_rate, consts.WINDOW_HEIGHT))
         pygame.draw.line(SCREEN, (0, 139, 0), (0, y_rate), (consts.WINDOW_WIDTH, y_rate))
 
-field = MineField.building_minefield()
-field2 = MineField.lay_mines(field)
-list = []
-list = MineField.mines_location(field2)
-print(list)
-#def add_mains_grid():
+
+LIST = MineField.mines_location(consts.MINEFIELD)
+def add_mine_grid():
+    for i in range(0,len(LIST), 3):
+        mine_picture = pygame.image.load('mine.png')
+        MINE = pygame.transform.scale(mine_picture, (consts.MINE_SIZE))
+        SCREEN.blit(MINE, (LIST[i][1] * 20, LIST[i][0]* 20)) #y = row, col = x
+
+#def add_soldier():
+
 
 
 
