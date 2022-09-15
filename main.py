@@ -8,12 +8,11 @@ pygame.init()
 
 def main(): #פה ירוץ המשחק
     clock = pygame.time.Clock()
-    finish = False
-    while not finish:
+    while not consts.FINISH:
         #clock.tick(consts.FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                finish = True
+                consts.FINISH= True
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RIGHT:
                     soldier.right_key()
