@@ -12,12 +12,15 @@ def main(): #פה ירוץ המשחק
     MINEFIELD = MineField.creating_minefield()
     finish = False
     while not finish:
-        clock.tick(consts.FPS)
+        #clock.tick(consts.FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 finish = True
         soldier. checking_minefield()
         screen.opening_screen()
     pygame.quit()
+
+
+
 if __name__ == '__main__':
     main()

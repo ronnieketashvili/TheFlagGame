@@ -19,16 +19,22 @@ locations = []
 locations = bushes_locations()
 
 def create_bushes():
-    global locations
     for i in range(len(locations)):
         bush_picture = pygame.image.load('bush.png')
         bush = pygame.transform.scale(bush_picture, (consts.BUSHES_SIZE))
         SCREEN.blit(bush, (locations[i][0], locations[i][1]))
+
+
 def opening_screen():
     SCREEN.fill(consts.SCREEN_COLOR)
     create_bushes()
-    SCREEN.blit(soldier.soldier_image, (soldier.soldier.x, soldier.soldier.y))
+    SCREEN.blit(soldier.soldier_image, (soldier.soldier.x,soldier.soldier.y))
     pygame.display.update()
+    return opening_screen
+
+
+
+
 
 #def when_enter_pressed():
 
