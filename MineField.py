@@ -48,6 +48,5 @@ def creating_minefield():
 def print_mine_field(mine_filed):
     for row in range(len(mine_filed)):
         for col in range(len(mine_filed[row])):
-            print(mine_filed[row][col]," ", end="")
+            print(mine_filed[row][col], " ", end="")
         print()
-

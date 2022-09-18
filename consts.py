@@ -1,10 +1,12 @@
 import MineField
+import pygame
 
 WINDOW_WIDTH = 1000
 WINDOW_HEIGHT = 500
 SOLDIER_HEIGHT = 80
 SOLDIER_WIDTH = 70
 VEL = 20
+CLOCK = pygame.time.Clock()
 FPS = 60
 
 
@@ -13,6 +15,8 @@ SCREEN_ENTER_COLOR = (0,0,0)
 
 BUSHES_SIZE = (220, 60)
 BUSHES_NUMBER = 20
+
+FLAG_SIZE = (80, 80)
 
 MINE_SIZE = (60, 20)
 
