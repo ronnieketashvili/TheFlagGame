@@ -15,6 +15,8 @@ df = {
 
 df = pd.DataFrame(df)
 
+df.to_csv("Memory TheFlagGame.csv")
+
 print(df)
 #with open('The Flag Game memory', 'w', newline='') as file:
 #    writer = csv.writer(file)
