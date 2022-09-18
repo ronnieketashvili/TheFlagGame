@@ -55,7 +55,6 @@ def main():
                         print("fast", int(chr(event.key)))
                     else:
                         print("slow", int(chr(event.key)))
-
     pygame.quit()
 
 
