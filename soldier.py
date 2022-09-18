@@ -38,34 +38,33 @@ def soldierlegs_in_matrix(minefield):
     soldier_col = int(soldier.x) // 20
     soldier_row = int(soldier.y) // 20
     legs_location_matrix = minefield[int(soldier_row) + 3][int(soldier_col) + 1]
-    print(legs_location_matrix)
-    print(soldier_row + 3, soldier_col + 3)
     return legs_location_matrix
+
+def soldierbody_in_matrix(minefield):
+    body_locations = []
+    soldier_col = int(soldier.x) // 20
+    soldier_row = int(soldier.y) // 20
+    for i in range(3):
+        body_part1_location = minefield[int(soldier_row) + i][int(soldier_col)]
+        body_locations.append(body_part1_location)
+        body_part2_location = minefield[int(soldier_row) + i][int(soldier_col) + 1]
+        body_locations.append(body_part2_location)
+    return body_locations
+
 
 
 soldier = pygame.Rect(0,0,consts.SOLDIER_WIDTH,consts.SOLDIER_HEIGHT)
 
 def checking_minefield():
     if soldierlegs_in_matrix(consts.MINEFIELD) == 'mine':
-        count = 0
-        h = 0
-        for i in range(50):
-            explotion_picture = pygame.image.load('explotion.png')
-            explotion = pygame.transform.scale(explotion_picture, (180, 180))
-            screen.SCREEN.blit(explotion, (soldier.x - 70 , soldier.y - 70))
-            pygame.display.update()
-            count += 1
-        for j in range(40):
-            injured_soldier_picture = pygame.image.load('injury_soldier.png')
-            injured_soldier = pygame.transform.scale(injured_soldier_picture, ((70, 100)))
-            screen.SCREEN.blit(injured_soldier, (soldier.x, soldier.y))
-            pygame.display.update()
-
-            h += 1
-        #screen.draw_lose_message()
-        #consts.FINISH = True
-        #return consts.FINISH
-    elif soldierlegs_in_matrix(consts.MINEFIELD) == 'flag':
+        for i in range(20):
+            screen.add_explotion()
+        for j in range(20):
+            screen.add_injred_soldier()
+        # screen.draw_lose_message()
+        consts.FINISH = True
+        return consts.FINISH
+    elif 'flag' in soldierbody_in_matrix(consts.MINEFIELD):
         #screen.draw_win_message()
         consts.FINISH = True
         return consts.FINISH

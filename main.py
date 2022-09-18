@@ -6,15 +6,14 @@ import soldier
 
 pygame.init()
 
-CURRENT_TIME = 0
-BUTTON_PRESS_TIME = 0
 def main(): #פה ירוץ המשחק
     CLOCK = pygame.time.Clock()
     while not consts.FINISH:
         CLOCK.tick(consts.FPS)
         for event in pygame.event.get():
+            screen.player_screen()
             if event.type == pygame.QUIT:
-                consts.FINISH= True
+                consts.FINISH = True
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RIGHT:
                     soldier.right_key()
@@ -33,7 +32,6 @@ def main(): #פה ירוץ המשחק
                     while count != 35:
                         screen.when_enter_pressed()
                         count += 1
-        screen.opening_screen()
     pygame.quit()
 
 

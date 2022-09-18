@@ -30,19 +30,22 @@ def add_flag():
     flag_picture = pygame.image.load('flag.png')
     flag = pygame.transform.scale(flag_picture, (consts.FLAG_SIZE))
     SCREEN.blit(flag, (920, 420))
-def opening_screen():
+
+def restart_screen():
+    global LIST
     SCREEN.fill(consts.SCREEN_COLOR)
     create_bushes()
     add_flag()
+def player_screen():
+    restart_screen()
     SCREEN.blit(soldier.soldier_image, (soldier.soldier.x,soldier.soldier.y))
     pygame.display.update()
-
 
 def when_enter_pressed():
     SCREEN. fill(consts.SCREEN_ENTER_COLOR)
     grid_create()
     add_mine_grid()
-    add_soldier()
+    add_night_soldier()
     pygame.display.update()
 
 def grid_create():
@@ -56,21 +59,30 @@ def grid_create():
 
 
 LIST = MineField.mines_location(consts.MINEFIELD)
-print(LIST)
 def add_mine_grid():
     for i in range(0,len(LIST), 3):
         mine_picture = pygame.image.load('mine.png')
         MINE = pygame.transform.scale(mine_picture, (consts.MINE_SIZE))
         SCREEN.blit(MINE, (LIST[i][1] * 20, LIST[i][0] * 20)) #y = row, col = x
 
-def add_soldier():
+def add_explotion():
+    restart_screen()
+    explotion_picture = pygame.image.load('explotion.png')
+    explotion = pygame.transform.scale(explotion_picture, (180, 180))
+    SCREEN.blit(explotion, (soldier.soldier.x - 70, soldier.soldier.y - 70))
+    pygame.display.update()
+
+def add_injred_soldier():
+    restart_screen()
+    injured_soldier_picture = pygame.image.load('injury_soldier.png')
+    injured_soldier = pygame.transform.scale(injured_soldier_picture, ((70, 100)))
+    SCREEN.blit(injured_soldier, (soldier.soldier.x, soldier.soldier.y))
+    pygame.display.update()
+
+def add_night_soldier():
     soldier_night_picture = pygame.image.load('soldier_nigth.png')
     soldier_night = pygame.transform.scale(soldier_night_picture, (consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT))
     SCREEN.blit(soldier_night, (soldier.soldier.x, soldier.soldier.y)) #y = row, col = x
-
-
-
-
 
 
 def draw_lose_message():
