@@ -1,23 +1,28 @@
 import csv
 import pandas as pd
 
+import screen
+import soldier
+
 df = {
-    1: ["Memory number", "list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
-    2: ["Memory number", "list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
-    3: ["Memory number", "list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
-    4: ["Memory number", "list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
-    5: ["Memory number", "list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
-    6: ["Memory number", "list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
-    7: ["Memory number", "list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
-    8: ["Memory number", "list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
-    9: ["Memory number", "list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"]
+    1: ["list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
+    2: ["list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
+    3: ["list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
+    4: ["list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
+    5: ["list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
+    6: ["list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
+    7: ["list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
+    8: ["list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"],
+    9: ["list of bushes", "list of mines", "X rate of soldier", "Y rate of soldier"]
 }
+def getting_data_for_press(press_number):
+    df[press_number][0] = screen.locations
+    df[press_number][1] = screen.LIST
+    df[press_number][2] = soldier.soldier.x
+    df[press_number][3] = soldier.soldier.y
+
 
 df = pd.DataFrame(df)
-
-df.to_csv("Memory TheFlagGame.csv")
-
 print(df)
-#with open('The Flag Game memory', 'w', newline='') as file:
-#    writer = csv.writer(file)
-#    writer.writerows(memory_list)
+df.to_csv("MemoryTheFlagGame.csv")
+
