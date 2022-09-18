@@ -12,6 +12,7 @@ def main(): #פה ירוץ המשחק
         CLOCK.tick(consts.FPS)
         for event in pygame.event.get():
             screen.player_screen()
+            screen.drow_start_message()
             if event.type == pygame.QUIT:
                 consts.FINISH = True
             if event.type == pygame.KEYDOWN:
@@ -27,13 +28,12 @@ def main(): #פה ירוץ המשחק
                 if event.key == pygame.K_DOWN:
                     soldier.down_key()
                     soldier.checking_minefield()
-                if event.key == pygame.K_KP_ENTER:
+                if event.key == pygame.K_RETURN:
                     count = 0
                     while count != 35:
                         screen.when_enter_pressed()
                         count += 1
     pygame.quit()
-
 
 
 if __name__ == '__main__':

@@ -61,11 +61,16 @@ def checking_minefield():
             screen.add_explotion()
         for j in range(20):
             screen.add_injred_soldier()
-        # screen.draw_lose_message()
+            screen.draw_lose_message()
         consts.FINISH = True
         return consts.FINISH
     elif 'flag' in soldierbody_in_matrix(consts.MINEFIELD):
-        #screen.draw_win_message()
+        counter = 0
+        while counter <= 35:
+            screen.player_screen()
+            screen.draw_win_message()
+            counter += 1
+            pygame.display.update()
         consts.FINISH = True
         return consts.FINISH
 
