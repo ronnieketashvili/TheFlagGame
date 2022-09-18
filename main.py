@@ -17,7 +17,7 @@ dict_keys = {
     pygame.K_8: 0,
     pygame.K_9: 0
 }
-def main(): #פה ירוץ המשחק
+def main():
     CLOCK = pygame.time.Clock()
     while not consts.FINISH:
         CLOCK.tick(consts.FPS)
