@@ -36,10 +36,21 @@ def restart_screen():
     SCREEN.fill(consts.SCREEN_COLOR)
     create_bushes()
     add_flag()
+
+def start_message():
+    if soldier.soldier.x == 0 and soldier.soldier.y == 0 and consts.COUNT <= 35:
+        drow_start_message()
+        consts.COUNT += 1
+
+
+
+
 def player_screen():
     restart_screen()
     SCREEN.blit(soldier.soldier_image, (soldier.soldier.x,soldier.soldier.y))
+    start_message()
     pygame.display.update()
+
 
 def when_enter_pressed():
     SCREEN. fill(consts.SCREEN_ENTER_COLOR)
@@ -59,6 +70,7 @@ def grid_create():
 
 
 LIST = MineField.mines_location(consts.MINEFIELD)
+
 def add_mine_grid():
     for i in range(0,len(LIST), 3):
         mine_picture = pygame.image.load('mine.png')
@@ -84,15 +96,19 @@ def add_night_soldier():
     soldier_night = pygame.transform.scale(soldier_night_picture, (consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT))
     SCREEN.blit(soldier_night, (soldier.soldier.x, soldier.soldier.y)) #y = row, col = x
 
-
 def draw_lose_message():
     draw_message(consts.LOSE_MESSAGE, consts.LOSE_FONT_SIZE,
                  consts.LOSE_COLOR, consts.LOSE_LOCATION)
+    pygame.display.update()
 
 
 def draw_win_message():
     draw_message(consts.WIN_MESSAGE, consts.WIN_FONT_SIZE,
                  consts.WIN_COLOR, consts.WIN_LOCATION)
+
+def drow_start_message():
+    draw_message(consts.START_MESSAGE, consts.START_FONT_SIZE,
+                 consts.START_COLOR, consts.START_LOCATION)
 
 
 def draw_message(message, font_size, color, location):
