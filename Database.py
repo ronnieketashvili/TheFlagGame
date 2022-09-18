@@ -23,6 +23,6 @@ def getting_data_for_press(press_number):
 
 
 df = pd.DataFrame(df)
-print(df)
+
 df.to_csv("MemoryTheFlagGame.csv")
 
