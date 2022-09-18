@@ -43,8 +43,6 @@ def start_message():
         consts.COUNT += 1
 
 
-
-
 def player_screen():
     restart_screen()
     SCREEN.blit(soldier.soldier_image, (soldier.soldier.x,soldier.soldier.y))
@@ -91,10 +89,13 @@ def add_injred_soldier():
     SCREEN.blit(injured_soldier, (soldier.soldier.x, soldier.soldier.y))
     pygame.display.update()
 
+
 def add_night_soldier():
     soldier_night_picture = pygame.image.load('soldier_nigth.png')
     soldier_night = pygame.transform.scale(soldier_night_picture, (consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT))
-    SCREEN.blit(soldier_night, (soldier.soldier.x, soldier.soldier.y)) #y = row, col = x
+    SCREEN.blit(soldier_night, ((soldier.soldier.x), soldier.soldier.y)) #y = row, col = x
+
+
 
 def draw_lose_message():
     draw_message(consts.LOSE_MESSAGE, consts.LOSE_FONT_SIZE,
