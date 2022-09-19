@@ -49,7 +49,7 @@ def main():
                     soldier.down_key()
                     soldier.checking_minefield()
 
-                if event.key == pygame.K_RETURN: # TODO: change it to normal time handling
+                if event.key == pygame.K_RETURN:  # TODO: change it to normal time handling
                     count = 0
                     while count != 35:
                         screen.when_enter_pressed()
