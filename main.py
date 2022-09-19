@@ -62,7 +62,7 @@ def main():
                     if time_elapsed <= 1:
                         Database.get_data_for_press(chr(event.key))
                     else:
-                        if Database.check_exist_memory(chr(event.key)):
+                        if Database.check_exist_memories(chr(event.key)):
                             screen.BUSHES_LIST = Database.get_property_coordinates(chr(event.key), consts.BUSH_COORD)
                             consts.MINES_LIST = Database.get_property_coordinates(chr(event.key), consts.MINES_COORD)
                             soldier.soldier.x, soldier.soldier.y = Database.get_property_coordinates(chr(event.key),consts.SOLDIER_COORD)
