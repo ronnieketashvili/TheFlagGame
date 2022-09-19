@@ -43,10 +43,10 @@ def soldierbody_in_matrix(minefield):
     body_locations = []
     soldier_col = int(soldier.x) // 20
     soldier_row = int(soldier.y) // 20
-    for i in range(3):
-        body_part1_location = minefield[int(soldier_row) + i][int(soldier_col)]
+    for j in range(3):
+        body_part1_location = minefield[int(soldier_row) + j][int(soldier_col)]
         body_locations.append(body_part1_location)
-        body_part2_location = minefield[int(soldier_row) + i][int(soldier_col) + 1]
+        body_part2_location = minefield[int(soldier_row) + j][int(soldier_col) + 1]
         body_locations.append(body_part2_location)
     return body_locations
 
