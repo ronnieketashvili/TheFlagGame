@@ -9,6 +9,7 @@ import MineField
 SCREEN = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 pygame.display.set_caption("FLAG GAME!")
 
+
 def bushes_locations():
     locations_list = []
     for i in range(consts.BUSHES_NUMBER):
@@ -17,35 +18,37 @@ def bushes_locations():
         locations_list.append((x_rate, y_rate))
     return locations_list
 
-locations = []
-locations = bushes_locations()
+
+BUSHES_LIST = bushes_locations()
 
 def create_bushes():
-    for i in range(len(locations)):
+    for i in range(len(BUSHES_LIST)):
         bush_picture = pygame.image.load('bush.png')
-        bush = pygame.transform.scale(bush_picture, (consts.BUSHES_SIZE))
-        SCREEN.blit(bush, (locations[i][0], locations[i][1]))
+        bush = pygame.transform.scale(bush_picture, consts.BUSHES_SIZE)
+        SCREEN.blit(bush, (BUSHES_LIST[i][0], BUSHES_LIST[i][1]))
+
 
 def add_flag():
     flag_picture = pygame.image.load('flag.png')
-    flag = pygame.transform.scale(flag_picture, (consts.FLAG_SIZE))
+    flag = pygame.transform.scale(flag_picture, consts.FLAG_SIZE)
     SCREEN.blit(flag, (920, 420))
 
+
 def restart_screen():
-    global LIST
     SCREEN.fill(consts.SCREEN_COLOR)
     create_bushes()
     add_flag()
 
+
 def start_message():
     if soldier.soldier.x == 0 and soldier.soldier.y == 0 and consts.COUNT <= 35:
-        drow_start_message()
+        draw_start_message()
         consts.COUNT += 1
 
 
 def player_screen():
     restart_screen()
-    SCREEN.blit(soldier.soldier_image, (soldier.soldier.x,soldier.soldier.y))
+    SCREEN.blit(soldier.soldier_image, (soldier.soldier.x, soldier.soldier.y))
     start_message()
     pygame.display.update()
 
@@ -57,6 +60,7 @@ def when_enter_pressed():
     add_night_soldier()
     pygame.display.update()
 
+
 def grid_create():
     x_rate = 0
     y_rate = 0
@@ -67,25 +71,25 @@ def grid_create():
         pygame.draw.line(SCREEN, (0, 139, 0), (0, y_rate), (consts.WINDOW_WIDTH, y_rate))
 
 
-LIST = MineField.mines_location(consts.MINEFIELD)
-
 def add_mine_grid():
-    for i in range(0,len(LIST), 3):
+    for i in range(0, len(consts.MINES_LIST), 3):
         mine_picture = pygame.image.load('mine.png')
-        MINE = pygame.transform.scale(mine_picture, (consts.MINE_SIZE))
-        SCREEN.blit(MINE, (LIST[i][1] * 20, LIST[i][0] * 20)) #y = row, col = x
+        mine = pygame.transform.scale(mine_picture, consts.MINE_SIZE)
+        SCREEN.blit(mine, (consts.MINES_LIST[i][1] * 20, consts.MINES_LIST[i][0] * 20))  # y = row, col = x
 
-def add_explotion():
+
+def add_explosion():
     restart_screen()
-    explotion_picture = pygame.image.load('explotion.png')
-    explotion = pygame.transform.scale(explotion_picture, (180, 180))
-    SCREEN.blit(explotion, (soldier.soldier.x - 70, soldier.soldier.y - 70))
+    explosion_picture = pygame.image.load('explotion.png')
+    explosion = pygame.transform.scale(explosion_picture, (180, 180))
+    SCREEN.blit(explosion, (soldier.soldier.x - 70, soldier.soldier.y - 70))
     pygame.display.update()
 
-def add_injred_soldier():
+
+def add_injured_soldier():
     restart_screen()
     injured_soldier_picture = pygame.image.load('injury_soldier.png')
-    injured_soldier = pygame.transform.scale(injured_soldier_picture, ((70, 100)))
+    injured_soldier = pygame.transform.scale(injured_soldier_picture, (70, 100))
     SCREEN.blit(injured_soldier, (soldier.soldier.x, soldier.soldier.y))
     pygame.display.update()
 
@@ -93,8 +97,7 @@ def add_injred_soldier():
 def add_night_soldier():
     soldier_night_picture = pygame.image.load('soldier_nigth.png')
     soldier_night = pygame.transform.scale(soldier_night_picture, (consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT))
-    SCREEN.blit(soldier_night, ((soldier.soldier.x), soldier.soldier.y)) #y = row, col = x
-
+    SCREEN.blit(soldier_night, (soldier.soldier.x, soldier.soldier.y))  # y = row, col = x
 
 
 def draw_lose_message():
@@ -107,7 +110,8 @@ def draw_win_message():
     draw_message(consts.WIN_MESSAGE, consts.WIN_FONT_SIZE,
                  consts.WIN_COLOR, consts.WIN_LOCATION)
 
-def drow_start_message():
+
+def draw_start_message():
     draw_message(consts.START_MESSAGE, consts.START_FONT_SIZE,
                  consts.START_COLOR, consts.START_LOCATION)
 

@@ -4,7 +4,7 @@ import consts
 pygame.init()
 
 soldier_image = pygame.image.load('soldier.png.png')
-soldier_image = pygame.transform.scale(soldier_image, (consts.SOLDIER_WIDTH,consts.SOLDIER_HEIGHT))
+soldier_image = pygame.transform.scale(soldier_image, (consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT))
 
 keys_pressed = pygame.key.get_pressed()
 def right_key():
@@ -21,7 +21,6 @@ def up_key():
 def down_key():
     if soldier.y + consts.VEL +consts.SOLDIER_HEIGHT < BORDER.y:
         soldier.y += consts.VEL
-
 
 
 def soldier_moving():
@@ -58,9 +57,9 @@ soldier = pygame.Rect(0,0,consts.SOLDIER_WIDTH,consts.SOLDIER_HEIGHT)
 def checking_minefield():
     if soldierlegs_in_matrix(consts.MINEFIELD) == 'mine':
         for i in range(20):
-            screen.add_explotion()
+            screen.add_explosion()
         for j in range(20):
-            screen.add_injred_soldier()
+            screen.add_injured_soldier()
             screen.draw_lose_message()
         consts.FINISH = True
         return consts.FINISH

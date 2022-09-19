@@ -6,7 +6,7 @@ import soldier
 import Database
 
 pygame.init()
-dict_keys = {
+time_press_keys = {
     pygame.K_1: 0,
     pygame.K_2: 0,
     pygame.K_3: 0,
@@ -17,18 +17,26 @@ dict_keys = {
     pygame.K_8: 0,
     pygame.K_9: 0
 }
+
+
 def main():
-    CLOCK = pygame.time.Clock()
+    Database.initialize_database()
+    clock = pygame.time.Clock()
+
     while not consts.FINISH:
-        CLOCK.tick(consts.FPS)
+        clock.tick(consts.FPS)
+
         for event in pygame.event.get():
             screen.player_screen()
-            screen.drow_start_message()
+            screen.draw_start_message()
+
             if event.type == pygame.QUIT:
                 consts.FINISH = True
+
             if event.type == pygame.KEYDOWN:
                 if pygame.K_1 <= event.key <= pygame.K_9:
-                    dict_keys[event.key] = pygame.time.get_ticks()
+                    time_press_keys[event.key] = pygame.time.get_ticks()
+
                 if event.key == pygame.K_RIGHT:
                     soldier.right_key()
                     soldier.checking_minefield()
@@ -41,21 +49,23 @@ def main():
                 if event.key == pygame.K_DOWN:
                     soldier.down_key()
                     soldier.checking_minefield()
-                if event.key == pygame.K_RETURN:
+
+                if event.key == pygame.K_RETURN: # TODO: change it to normal time handling
                     count = 0
                     while count != 35:
                         screen.when_enter_pressed()
                         count += 1
+
             if event.type == pygame.KEYUP:
                 if pygame.K_1 <= event.key <= pygame.K_9:
-                    time_elapsed = (pygame.time.get_ticks() - dict_keys[event.key]) / 1000.0
-                    print(time_elapsed)
+                    time_elapsed = (pygame.time.get_ticks() - time_press_keys[event.key]) / 1000.0
                     if time_elapsed <= 1:
-                        Database.getting_data_for_press(int(chr(event.key)))
-                        print("fast", int(chr(event.key)))
+                        Database.get_data_for_press(chr(event.key))
                     else:
-                        print("slow", int(chr(event.key)))
-
+                        screen.BUSHES_LIST = Database.get_property_coordinates(chr(event.key), consts.BUSH_COORD)
+                        consts.MINES_LIST = Database.get_property_coordinates(chr(event.key), consts.MINES_COORD)
+                        soldier.soldier.x, soldier.soldier.y = Database.get_property_coordinates(chr(event.key),
+                                                                                                 consts.SOLDIER_COORD)
     pygame.quit()
 
 
