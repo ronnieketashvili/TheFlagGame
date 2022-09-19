@@ -5,7 +5,7 @@ import pygame
 import soldier
 import Database
 
-pygame.init()
+
 time_press_keys = {
     pygame.K_1: 0,
     pygame.K_2: 0,
@@ -18,7 +18,7 @@ time_press_keys = {
     pygame.K_9: 0
 }
 
-
+pygame.init()
 def main():
     Database.initialize_database()
     clock = pygame.time.Clock()
@@ -50,7 +50,7 @@ def main():
                     soldier.down_key()
                     soldier.checking_minefield()
 
-                if event.key == pygame.K_RETURN:  # TODO: change it to normal time handling
+                if event.key == pygame.K_RETURN: # TODO: change it to normal time handling
                     count = 0
                     while count != 35:
                         screen.when_enter_pressed()
@@ -65,9 +65,9 @@ def main():
                         if Database.check_exist_memory(chr(event.key)):
                             screen.BUSHES_LIST = Database.get_property_coordinates(chr(event.key), consts.BUSH_COORD)
                             consts.MINES_LIST = Database.get_property_coordinates(chr(event.key), consts.MINES_COORD)
-                            soldier.soldier.x, soldier.soldier.y = Database.get_property_coordinates(chr(event.key),
-                                                                                                     consts.SOLDIER_COORD)
-                    pygame.quit()
+                            soldier.soldier.x, soldier.soldier.y = Database.get_property_coordinates(chr(event.key),consts.SOLDIER_COORD)
+
+    pygame.quit()
 
 
 if __name__ == '__main__':
