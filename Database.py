@@ -23,10 +23,9 @@ def given_data_for_press(pressed_number):
     df.to_csv(DATABASE)
 
 
-def get_property_coordinates(pressed_number, column):
+def get_coordinates_property(pressed_number, column):
     df = pd.read_csv(DATABASE)
     return literal_eval(df[pressed_number][column])
-
 
 def check_exist_memories(pressed_number):
     if df[pressed_number][0] != "list of bushes":
