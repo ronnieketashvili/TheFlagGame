@@ -4,15 +4,18 @@ import consts
 pygame.init()
 
 def soldier_image():
+    # Editing the image of the soldier to the fitting size
     soldier_image = pygame.image.load('soldier.png.png')
-    soldier_image = pygame.transform.scale(soldier_image, (consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT))
+    soldier_image = pygame.transform.scale(soldier_image,
+                                           (consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT))
     return soldier_image
 
 soldier_image = soldier_image()
-soldier = pygame.Rect(0,0,consts.SOLDIER_WIDTH,consts.SOLDIER_HEIGHT)
+soldier = pygame.Rect(0, 0, consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT)
 
 keys_pressed = pygame.key.get_pressed()
 def right_key():
+    # Checking that the step will not lead to the soldier leaving the screen
    if soldier.x + consts.VEL + consts.SOLDIER_WIDTH < consts.WINDOW_WIDTH:
         soldier.x += consts.VEL
 def left_key():
@@ -36,19 +39,22 @@ def soldier_moving():
     down_key()
     up_key()
 
-#checking soldier coordinates in the matrix
+
 def soldier_matrix():
+    # checking soldier coordinates in the matrix
     soldier_col = int(soldier.x) // consts.VEL
     soldier_row = int(soldier.y) // consts.VEL
     return (soldier_row, soldier_col)
 
 def soldier_legs_in_matrix(minefield):
+    # Checking the position of the soldier's feet in the matrix
     soldier_row, soldier_col = soldier_matrix()
     legs_location_matrix = minefield[int(soldier_row) + 3][int(soldier_col) + 1]
     return legs_location_matrix
 
 
 def soldier_body_in_matrix(minefield):
+    # Checking the location of the soldier's body in the matrix, and returning it as a list
     body_locations = []
     soldier_row, soldier_col = soldier_matrix()
     for j in range(3):
@@ -59,6 +65,7 @@ def soldier_body_in_matrix(minefield):
     return body_locations
 
 def player_lose():
+    # Changing of the screen in case of losing the game
     for i in range(20):
         screen.add_explosion()
     for j in range(20):
@@ -67,6 +74,7 @@ def player_lose():
     consts.FINISH = True
 
 def player_win():
+    # Changing of the screen in case of winning the game
     counter = 0
     while counter <= 35:
         screen.player_screen()
@@ -77,6 +85,7 @@ def player_win():
 
 
 def checking_minefield():
+    # Checking whether the soldier's feet touch the mine, or his body touches the flag
     if soldier_legs_in_matrix(consts.MINEFIELD) == 'mine':
         player_lose()
         return consts.FINISH
