@@ -32,16 +32,17 @@ MINES_LIST = MineField.mines_location(MINEFIELD)
 BUSH_COORD = 0
 MINES_COORD = 1
 SOLDIER_COORD = 2
+MATRIX_COORD = 3
 DEFAULT_DATAFRAME = {
-    "1": ["list of bushes", "list of mines", "soldier coordinates"],
-    "2": ["list of bushes", "list of mines", "soldier coordinates"],
-    "3": ["list of bushes", "list of mines", "soldier coordinates"],
-    "4": ["list of bushes", "list of mines", "soldier coordinates"],
-    "5": ["list of bushes", "list of mines", "soldier coordinates"],
-    "6": ["list of bushes", "list of mines", "soldier coordinates"],
-    "7": ["list of bushes", "list of mines", "soldier coordinates"],
-    "8": ["list of bushes", "list of mines", "soldier coordinates"],
-    "9": ["list of bushes", "list of mines", "soldier coordinates"]
+    "1": ["list of bushes", "list of mines", "soldier coordinates", "matrix"],
+    "2": ["list of bushes", "list of mines", "soldier coordinates", "matrix"],
+    "3": ["list of bushes", "list of mines", "soldier coordinates", "matrix"],
+    "4": ["list of bushes", "list of mines", "soldier coordinates", "matrix"],
+    "5": ["list of bushes", "list of mines", "soldier coordinates", "matrix"],
+    "6": ["list of bushes", "list of mines", "soldier coordinates", "matrix"],
+    "7": ["list of bushes", "list of mines", "soldier coordinates", "matrix"],
+    "8": ["list of bushes", "list of mines", "soldier coordinates", "matrix"],
+    "9": ["list of bushes", "list of mines", "soldier coordinates", "matrix"]
 }
 
 # Messages constants
