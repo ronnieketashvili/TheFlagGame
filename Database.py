@@ -29,6 +29,15 @@ def get_property_coordinates(pressed_number, column):
     return literal_eval(df[pressed_number][column])
 
 
+def check_exist_memory(pressed_number):
+    if df[pressed_number][0] != "list of bushes":
+        return True
+    else:
+        return False
+
+
+
+
 
 
 

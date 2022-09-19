@@ -21,6 +21,7 @@ def bushes_locations():
 
 BUSHES_LIST = bushes_locations()
 
+
 def create_bushes():
     for i in range(len(BUSHES_LIST)):
         bush_picture = pygame.image.load('bush.png')

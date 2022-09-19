@@ -1,4 +1,3 @@
-import MineField
 import consts
 import screen
 import pygame
@@ -62,10 +61,11 @@ def main():
                     if time_elapsed <= 1:
                         Database.get_data_for_press(chr(event.key))
                     else:
-                        screen.BUSHES_LIST = Database.get_property_coordinates(chr(event.key), consts.BUSH_COORD)
-                        consts.MINES_LIST = Database.get_property_coordinates(chr(event.key), consts.MINES_COORD)
-                        soldier.soldier.x, soldier.soldier.y = Database.get_property_coordinates(chr(event.key),
-                                                                                                 consts.SOLDIER_COORD)
+                        if Database.check_exist_memory(chr(event.key)):
+                            screen.BUSHES_LIST = Database.get_property_coordinates(chr(event.key), consts.BUSH_COORD)
+                            consts.MINES_LIST = Database.get_property_coordinates(chr(event.key), consts.MINES_COORD)
+                            soldier.soldier.x, soldier.soldier.y = Database.get_property_coordinates(chr(event.key),
+                                                                                                     consts.SOLDIER_COORD)
     pygame.quit()
 
 
