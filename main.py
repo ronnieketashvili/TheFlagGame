@@ -53,7 +53,7 @@ def main():
                 if pygame.K_1 <= event.key <= pygame.K_9:
                     time_elapsed = (pygame.time.get_ticks() - time_press_keys[event.key]) / 1000.0
                     if time_elapsed <= 1:
-                        Database.get_data_for_press(chr(event.key))
+                        Database.given_data_for_press(chr(event.key))
                     else:
                         if Database.check_exist_memories(chr(event.key)):
                             screen.BUSHES_LIST = Database.get_property_coordinates(chr(event.key), consts.BUSH_COORD)
