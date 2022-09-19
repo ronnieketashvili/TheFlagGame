@@ -1,3 +1,4 @@
+import MineField
 import consts
 import screen
 import pygame
@@ -66,9 +67,7 @@ def main():
                             consts.MINES_LIST = Database.get_property_coordinates(chr(event.key), consts.MINES_COORD)
                             soldier.soldier.x, soldier.soldier.y = Database.get_property_coordinates(chr(event.key),
                                                                                                      consts.SOLDIER_COORD)
-    pygame.quit()
-
-
+                    pygame.quit()
 
 
 if __name__ == '__main__':
