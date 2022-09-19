@@ -1,5 +1,4 @@
 import random
-
 import consts
 
 #creating the matrix
