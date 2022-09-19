@@ -16,7 +16,6 @@ def initialize_database():
     else:
         df.to_csv(DATABASE)
 
-
 def get_data_for_press(pressed_number):
     df[pressed_number][0] = screen.BUSHES_LIST
     df[pressed_number][1] = consts.MINES_LIST
@@ -29,15 +28,11 @@ def get_property_coordinates(pressed_number, column):
     return literal_eval(df[pressed_number][column])
 
 
-def check_exist_memory(pressed_number):
+def check_exist_memories(pressed_number):
     if df[pressed_number][0] != "list of bushes":
         return True
     else:
         return False
-
-
-
-
 
 
 
