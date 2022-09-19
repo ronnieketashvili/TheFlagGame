@@ -8,13 +8,13 @@ from ast import literal_eval
 DATABASE = "MemoryTheFlagGame.csv"
 df = pd.DataFrame(consts.DEFAULT_DATAFRAME)
 
-
-def initialize_database():
+def initalize_database():
     global df
     if os.path.isfile(DATABASE):
         df = pd.read_csv(DATABASE)
     else:
         df.to_csv(DATABASE)
+
 
 def get_data_for_press(pressed_number):
     df[pressed_number][0] = screen.BUSHES_LIST
