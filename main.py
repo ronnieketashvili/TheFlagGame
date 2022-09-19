@@ -56,9 +56,9 @@ def main():
                         Database.given_data_for_press(chr(event.key))
                     else:
                         if Database.check_exist_memories(chr(event.key)):
-                            screen.BUSHES_LIST = Database.get_coordinates_property(chr(event.key), consts.BUSH_COORD)
-                            consts.MINES_LIST = Database.get_coordinates_property(chr(event.key), consts.MINES_COORD)
-                            soldier.soldier.x, soldier.soldier.y = Database.get_coordinates_property(chr(event.key),consts.SOLDIER_COORD)
+                            screen.BUSHES_LIST = Database.get_proper_coordinates(chr(event.key), consts.BUSH_COORD)
+                            consts.MINES_LIST = Database.get_proper_coordinates(chr(event.key), consts.MINES_COORD)
+                            soldier.soldier.x, soldier.soldier.y = Database.get_proper_coordinates(chr(event.key), consts.SOLDIER_COORD)
 
     pygame.quit()
 
