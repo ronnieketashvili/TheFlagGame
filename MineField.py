@@ -1,15 +1,18 @@
 import random
 
+import consts
+
+#creating the matrix
 def building_minefield():
     mine_field = []
-    for i in range(25):
+    for i in range(consts.ROWS):
         row = []
-        for col in range(50):
+        for col in range(consts.COLUMN):
             row.append('free')
         mine_field.append(row)
     return mine_field
 
-
+#inserting the mines
 def lay_mines(mine_field):
     for i in range(20):
         random_row = random.randint(0, 24)

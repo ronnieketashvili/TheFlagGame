@@ -1,4 +1,3 @@
-import MineField
 import consts
 import screen
 import pygame
@@ -28,7 +27,6 @@ def main():
 
         for event in pygame.event.get():
             screen.player_screen()
-            screen.draw_start_message()
 
             if event.type == pygame.QUIT:
                 consts.FINISH = True
@@ -63,13 +61,10 @@ def main():
                         Database.given_data_for_press(chr(event.key))
                     else:
                         if Database.check_exist_memories(chr(event.key)):
-                            screen.BUSHES_LIST = Database.get_proper_coordinates(chr(event.key), consts.BUSH_COORD)
-                            consts.MINES_LIST = Database.get_proper_coordinates(chr(event.key), consts.MINES_COORD)
-                            soldier.soldier.x, soldier.soldier.y = Database.get_proper_coordinates(chr(event.key), consts.SOLDIER_COORD)
-                            pygame.display.update()
+                            key_number = chr(event.key)
+                            Database.insert_info(key_number)
 
     pygame.quit()
-
 
 if __name__ == '__main__':
     main()
