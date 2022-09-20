@@ -45,9 +45,9 @@ def restart_screen():
 
 def start_message():
     # Printing the "Welcome to The Flag game" message
-    if soldier.soldier.x == 0 and soldier.soldier.y == 0 and consts.COUNT <= 35:
+    if soldier.soldier.x == 0 and soldier.soldier.y == 0 and consts.count <= 35:
         draw_start_message()
-        consts.COUNT += 1
+        consts.count += 1
 
 
 def player_screen():

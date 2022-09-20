@@ -14,8 +14,9 @@ soldier_image = soldier_image()
 soldier = pygame.Rect(0, 0, consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT)
 
 keys_pressed = pygame.key.get_pressed()
+
+# adding the step value to the soldier coordinates, while checking that it's index is not out of range
 def right_key():
-    # Checking that the step will not lead to the soldier leaving the screen
    if soldier.x + consts.VEL + consts.SOLDIER_WIDTH < consts.WINDOW_WIDTH:
         soldier.x += consts.VEL
 def left_key():
@@ -41,13 +42,13 @@ def soldier_moving():
 
 
 def soldier_matrix():
-    # checking soldier coordinates in the matrix
+    # Checking soldier location in the matrix
     soldier_col = int(soldier.x) // consts.VEL
     soldier_row = int(soldier.y) // consts.VEL
     return (soldier_row, soldier_col)
 
 def soldier_legs_in_matrix(minefield):
-    # Checking the position of the soldier's feet in the matrix
+    # Checking the position of the soldier's legs in the matrix
     soldier_row, soldier_col = soldier_matrix()
     legs_location_matrix = minefield[int(soldier_row) + 3][int(soldier_col) + 1]
     return legs_location_matrix

@@ -32,12 +32,10 @@ def get_proper_coordinates(pressed_number, column):
     df = pd.read_csv(DATABASE)
     return literal_eval(df[pressed_number][column])
 
-def check_exist_memories(pressed_number):
+def is_number_saved(pressed_number):
     # Checks if information is saved in the same key value, if not, returns False and does not restart game
-    if df[pressed_number][0] != "list of bushes":
-        return True
-    else:
-        return False
+    return df[pressed_number][0] != "list of bushes"
+
 
 def insert_info(key_number):
     # Restart the desired game by accessing the saved data, get it and putting it, in the required variables

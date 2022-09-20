@@ -3,7 +3,7 @@ import consts
 
 
 def building_minefield():
-    # creating the matrix
+    # Creating the matrix
     mine_field = []
     for i in range(consts.ROWS):
         row = []
@@ -14,7 +14,7 @@ def building_minefield():
 
 
 def lay_mines(mine_field):
-    # inserting the mines ar randoms locations
+    # Inserting the mines at randoms locations
     for i in range(20):
         random_row = random.randint(0, 24)
         random_col = random.randint(0, 47)
@@ -30,6 +30,7 @@ def lay_mines(mine_field):
 
 
 def mines_location(mine_field):
+    # Creating a list of mine's locations.
     mines_location_list = []
     for row in range(len(mine_field)):
         for col in range(len(mine_field[row])):
@@ -39,7 +40,7 @@ def mines_location(mine_field):
 
 
 def flag_position(mine_field):
-    #inserting the flag to the metrix
+    #Inserting the flag to the metrix
     for row in range(3):
         for col in range(4):
             mine_field[21 + row][46 + col] = 'flag'
@@ -47,6 +48,7 @@ def flag_position(mine_field):
 
 
 def creating_minefield():
+    #Creating the matrix by combining all the functions that components the matrix.
     mine_field = building_minefield()
     mine_field = lay_mines(mine_field)
     mine_field = flag_position(mine_field)

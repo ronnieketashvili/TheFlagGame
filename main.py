@@ -60,7 +60,7 @@ def main():
                     if time_elapsed <= 1:
                         Database.given_data_for_press(chr(event.key))
                     else:
-                        if Database.check_exist_memories(chr(event.key)):
+                        if Database.is_number_saved(chr(event.key)):
                             key_number = chr(event.key)
                             Database.insert_info(key_number)
 
