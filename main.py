@@ -25,6 +25,7 @@ def main():
     while not consts.FINISH:
         clock.tick(consts.FPS)
 
+
         for event in pygame.event.get():
             screen.player_screen()
 

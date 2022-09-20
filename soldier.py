@@ -65,6 +65,19 @@ def soldier_body_in_matrix(minefield):
         body_locations.append(body_part2_location)
     return body_locations
 
+def solder_full_body_matrix():
+    minefield = consts.MINEFIELD
+    soldier_full_location = []
+    soldier_row, soldier_col = soldier_matrix()
+    for i in range(3):
+        for j in range(2):
+            soldier_full_location.append((soldier_row+i,soldier_col+j))
+    return soldier_full_location
+
+
+
+
+
 def player_lose():
     # Changing of the screen in case of losing the game
     for i in range(20):

@@ -1,7 +1,7 @@
 import pygame
-import consts
 import random
 import soldier
+import consts
 
 
 SCREEN = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))

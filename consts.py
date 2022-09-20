@@ -1,4 +1,5 @@
 import MineField
+import soldier
 
 WINDOW_WIDTH = 1000
 WINDOW_HEIGHT = 500
@@ -26,7 +27,7 @@ MINE_SIZE = (60, 20)
 FINISH = False
 MINEFIELD = MineField.creating_minefield()
 MINES_LIST = MineField.mines_location(MINEFIELD)
-
+soldier_full_location = soldier.solder_full_body_matrix()
 
 # Database constants
 BUSH_COORD = 0
